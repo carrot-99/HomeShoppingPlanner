@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CDCategory" representedClassName="CDCategory" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CDMemo" representedClassName="CDMemo" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="imageURL" optional="YES" attributeType="String"/>
+        <attribute name="isPurchased" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="needBy" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
+        <attribute name="priority" optional="YES" attributeType="String"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="storeId" optional="YES" attributeType="String"/>
+        <attribute name="unit" optional="YES" attributeType="String"/>
+        <relationship name="store" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDStore" inverseName="memos" inverseEntity="CDStore"/>
+    </entity>
+    <entity name="CDStore" representedClassName="CDStore" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="memos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDMemo" inverseName="store" inverseEntity="CDMemo"/>
+    </entity>
+    <entity name="CDUnit" representedClassName="CDUnit" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+</model>
